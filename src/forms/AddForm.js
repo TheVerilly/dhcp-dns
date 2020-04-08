@@ -1,24 +1,26 @@
 import React, { useState } from 'react'
+import PropTypes from 'prop-types';
+
+const INITIAL_STATE_ITEM = { id: null, domain: '', ipAdress: '' };
 
 const AddForm = props => {
-	const initialFormState = { id: null, domain: '', ipAdress: '' };
-	const [ item, setItem ] = useState(initialFormState);
+	const [ item, setItem ] = useState(INITIAL_STATE_ITEM);
 
 	const handleInputChange = event => {
 		const { name, value } = event.target;
 		setItem({ ...item, [name]: value });
 	};
 
-	return (
-		<form
-			onSubmit={event => {
-				event.preventDefault();
-				if (!item.domain || !item.ipAdress) return;
+	const handleSubmit = event => {
+		event.preventDefault();
+		if (!item.domain || !item.ipAdress) return;
 
-				props.createAction(item);
-				setItem(initialFormState);
-			}}
-		>
+		props.createAction(item);
+		setItem(INITIAL_STATE_ITEM);
+	};
+
+	return (
+		<form onSubmit={handleSubmit}>
 			<label>domain</label>
 			<input type="text" name="domain" value={item.domain} onChange={handleInputChange} />
 			<label>ipAdress</label>
@@ -26,6 +28,10 @@ const AddForm = props => {
 			<button>Add new item</button>
 		</form>
 	)
+};
+
+AddForm.propTypes = {
+	createAction: PropTypes.func,
 };
 
 export default AddForm;

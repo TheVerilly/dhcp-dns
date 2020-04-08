@@ -1,4 +1,5 @@
 import React from 'react'
+import PropTypes from 'prop-types';
 
 const Table = props => (
   <table>
@@ -36,5 +37,11 @@ const Table = props => (
     </tbody>
   </table>
 );
+
+Table.propTypes = {
+    items: PropTypes.array,
+    delete: PropTypes.func,
+    editRow: PropTypes.func,
+}
 
 export default Table
