@@ -2,7 +2,7 @@ import React, { StrictMode, useEffect, useState } from 'react'
 
 import { Box } from '@material-ui/core';
 
-import Table from './Table'
+import Table from './components/Table'
 
 const initialData = [
     { id: 1, ipAddress: '255.255.248.0', domain: 'example.com' },

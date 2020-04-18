@@ -74,12 +74,11 @@ const Table = props => {
                                                 key={row.id}
                                                 row={row}
                                                 editableItem={editableItem}
-                                                onClickCreate={handleStartCreating}
                                                 onClickEdit={handleToggleEditMode}
                                                 onClickSave={handleSave}
                                                 onSwitchActiveState={handleSwitchActiveState}
                                                 onClickRemove={handleRemove}
-                                                onClickCancelEdit={() => handleToggleEditMode(null)}
+                                                onClickCancel={() => handleToggleEditMode(null)}
                                             />
                                         ))
                                     )
