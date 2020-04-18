@@ -1,4 +1,4 @@
-import React, { Fragment } from 'react';
+import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 
 import {
@@ -16,26 +16,31 @@ import TableToolbar from './Table.Toolbar';
 
 
 const Table = props => {
-    // const [selected, setSelected] = React.useState([]);
+    // const [selected, setSelected] = useState([]);
+    const [editableItem, setEditableItem] = useState(null);
 
     const handleSelectAllClick = () => {
         console.log('handleSelectAllClick');
     }
 
-    const handleCreate = () => {
-        console.log('handleOnCreate');
+    const handleStartCreating = () => {
+        console.log('handleStartCreating');
     };
 
-    const handleEdit = () => {
-        console.log('handleOnEdit');
-    };
-
-    const handleSwitchActiveState = () => {
-        console.log('switchActiveState');
+    const handleSave = () => {
+        console.log('handleSave');
     };
 
     const handleRemove = () => {
         console.log('handleOnRemove');
+    };
+
+    const handleToggleEditMode = state => {
+        setEditableItem(state);
+    };
+
+    const handleSwitchActiveState = () => {
+        console.log('switchActiveState');
     };
 
 
@@ -68,10 +73,13 @@ const Table = props => {
                                             <TableRow
                                                 key={row.id}
                                                 row={row}
-                                                onClickCreate={handleCreate}
-                                                onClickEdit={handleEdit}
+                                                editableItem={editableItem}
+                                                onClickCreate={handleStartCreating}
+                                                onClickEdit={handleToggleEditMode}
+                                                onClickSave={handleSave}
                                                 onSwitchActiveState={handleSwitchActiveState}
                                                 onClickRemove={handleRemove}
+                                                onClickCancelEdit={() => handleToggleEditMode(null)}
                                             />
                                         ))
                                     )
