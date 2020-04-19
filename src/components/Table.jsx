@@ -14,6 +14,7 @@ import TableHead from './Table.Head';
 import TableRow from './Table.Row';
 import TableToolbar from './Table.Toolbar';
 
+import PT from '../prop-types';
 
 const Table = props => {
     // const [selected, setSelected] = useState([]);
@@ -94,11 +95,7 @@ const Table = props => {
 
 Table.propTypes = {
     isLoading: PropTypes.bool,
-    data: PropTypes.arrayOf(PropTypes.exact({
-        id: PropTypes.number,
-        ipAddress: PropTypes.string,
-        domain: PropTypes.string
-    })),
+    data: PropTypes.arrayOf(PropTypes.exact(PT.TABLE_ROW))
 };
 
 export default Table;

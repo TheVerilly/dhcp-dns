@@ -5,6 +5,8 @@ import {
     TableCell, TextField
 } from '@material-ui/core';
 
+import PT from '../prop-types';
+
 const TableRowMode = props => {
     return (
         <Fragment>
@@ -30,11 +32,7 @@ const TableRowMode = props => {
 };
 
 TableRowMode.propTypes = {
-    row: PropTypes.exact({
-        id: PropTypes.number,
-        ipAddress: PropTypes.string,
-        domain: PropTypes.string,
-    })
+    row: PropTypes.exact(PT.TABLE_ROW)
 };
 
 export default TableRowMode;
