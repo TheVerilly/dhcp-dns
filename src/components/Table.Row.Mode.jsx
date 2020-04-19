@@ -12,16 +12,16 @@ const TableRowMode = props => {
                 props.isEditMode ? (
                     <Fragment>
                         <TableCell>
-                            <TextField variant="outlined" value={props.row.ipAddress} />
+                            <TextField variant="outlined" value={props.row.domain} />
                         </TableCell>
                         <TableCell>
-                            <TextField variant="outlined" value={props.row.domain} />
+                            <TextField variant="outlined" value={props.row.ipAddress} />
                         </TableCell>
                     </Fragment>
                 ) : (
                     <Fragment>
-                        <TableCell>{props.row.ipAddress}</TableCell>
                         <TableCell>{props.row.domain}</TableCell>
+                        <TableCell>{props.row.ipAddress}</TableCell>
                     </Fragment>
                 )
             }

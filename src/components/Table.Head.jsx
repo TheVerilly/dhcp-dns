@@ -9,8 +9,8 @@ import {
 } from '@material-ui/core';
 
 const headCells = [
-    { id: 'IP_ADDRESS', label: 'ipAddress' },
     { id: 'DOMAIN', label: 'Domain' },
+    { id: 'IP_ADDRESS', label: 'ipAddress' },
 ];
 
 const TableHead = props => (

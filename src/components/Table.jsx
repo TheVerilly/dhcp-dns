@@ -19,25 +19,26 @@ import PT from '../prop-types';
 const Table = props => {
     // const [selected, setSelected] = useState([]);
     const [editableItem, setEditableItem] = useState(null);
+    const [isCreatableMode, setCreatableMode] = useState(false);
 
     const handleSelectAllClick = () => {
         console.log('handleSelectAllClick');
     }
 
-    const handleStartCreating = () => {
-        console.log('handleStartCreating');
+    const handleToggleCreateMode = value => {
+        setCreatableMode(value);
     };
 
-    const handleSave = () => {
-        console.log('handleSave');
+    const handleSave = data => {
+        props.actionUpdateData(data)
     };
 
     const handleRemove = () => {
         console.log('handleOnRemove');
     };
 
-    const handleToggleEditMode = state => {
-        setEditableItem(state);
+    const handleToggleEditMode = value => {
+        setEditableItem(value);
     };
 
     const handleSwitchActiveState = () => {
@@ -47,7 +48,12 @@ const Table = props => {
 
     return (
         <Paper>
-            <TableToolbar isLoading={props.isLoading} />
+            <TableToolbar
+                isLoading={props.isLoading}
+                creatableMode={isCreatableMode}
+                onClickToggleCreateMode={handleToggleCreateMode}
+                onClickSave={handleSave}
+            />
             <MaterialTable>
                 <TableHead
                     isLoading={props.isLoading}
@@ -95,7 +101,8 @@ const Table = props => {
 
 Table.propTypes = {
     isLoading: PropTypes.bool,
-    data: PropTypes.arrayOf(PropTypes.exact(PT.TABLE_ROW))
+    data: PropTypes.arrayOf(PropTypes.exact(PT.TABLE_ROW)),
+    actionUpdateData: PropTypes.func.isRequired,
 };
 
 export default Table;
