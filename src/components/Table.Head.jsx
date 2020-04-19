@@ -17,7 +17,7 @@ const TableHead = props => (
     <MaterialTableHead>
         <TableRow>
             <TableCell padding="checkbox">
-                <Checkbox disabled={props.isLoading} onChange={props.onSelectAllClick}/>
+                <Checkbox color="primary" disabled={props.isLoading} onChange={props.onSelectAllClick}/>
             </TableCell>
             {headCells.map(item => (
                 <TableCell key={item.id}>{item.label}</TableCell>

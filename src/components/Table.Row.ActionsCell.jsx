@@ -5,6 +5,8 @@ import {Button, IconButton, Switch, TableCell} from '@material-ui/core';
 import {Delete as DeleteIcon, Edit as EditIcon} from '@material-ui/icons';
 import { withStyles } from '@material-ui/styles';
 
+import PT from '../prop-types';
+
 const styles = () => ({
     cellActions: {
         width: 200,
@@ -26,9 +28,15 @@ const TableRowActionsCell = props => (
                 </Fragment>
             ) : (
                 <TableCell align="center" className={props.classes.cellActions}>
-                    <IconButton onClick={props.onClickEdit} color="primary"><EditIcon /></IconButton>
+                    <IconButton
+                        color="primary"
+                        disabled={props.row.disabled}
+                        onClick={props.onClickEdit}
+                    >
+                        <EditIcon />
+                    </IconButton>
                     <IconButton onClick={props.onClickRemove} color="secondary"><DeleteIcon /></IconButton>
-                    <Switch checked={true} onChange={props.onSwitchActiveState} />
+                    <Switch checked={props.row.disabled} onChange={props.onSwitchActiveState} />
                 </TableCell>
             )
         }
@@ -36,6 +44,7 @@ const TableRowActionsCell = props => (
 );
 
 TableRowActionsCell.propTypes = {
+    row: PropTypes.exact(PT.TABLE_ROW).isRequired,
     isEditMode: PropTypes.bool.isRequired,
     onClickEdit: PropTypes.func.isRequired,
     onClickCancel: PropTypes.func.isRequired

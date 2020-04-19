@@ -1,9 +1,7 @@
 import React, { Fragment } from 'react';
 import PropTypes from 'prop-types';
 
-import {
-    TableCell, TextField
-} from '@material-ui/core';
+import { TableCell, TextField } from '@material-ui/core';
 
 import PT from '../prop-types';
 
