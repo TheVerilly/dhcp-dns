@@ -27,13 +27,9 @@ const App = () => {
         })
     }, []);
 
-    const handleUpdateData = item => {
-        setData([...data, { ...item, id: 5, disabled: false }]);
-    }
-
     return (
         <Box p={3}>
-            <Table isLoading={isLoading} actionUpdateData={handleUpdateData} data={data} />
+            <Table isLoading={isLoading} data={data} />
         </Box>
     );
 };

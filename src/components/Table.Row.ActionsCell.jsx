@@ -41,7 +41,7 @@ const TableRowActionsCell = props => {
                     <Fragment>
                         <TableCell align="center" className={props.classes.cellActions}>
                             <Button onClick={props.onClickSave} variant="contained" color="primary">Save</Button>
-                            <Button onClick={props.onClickCancel} variant="contained" color="secondary">Cancel</Button>
+                            <Button onClick={props.onClickCancelEdit} variant="contained" color="secondary">Cancel</Button>
                         </TableCell>
                     </Fragment>
                 ) : (
@@ -49,12 +49,20 @@ const TableRowActionsCell = props => {
                         <IconButton
                             color="primary"
                             disabled={props.row.disabled}
-                            onClick={props.onClickEdit}
+                            onClick={props.onClickStartEdit}
                         >
                             <EditIcon />
                         </IconButton>
-                        <IconButton onClick={handleClickOpenDialog} color="secondary"><DeleteIcon /></IconButton>
-                        <Switch checked={props.row.disabled} onChange={props.onSwitchActiveState} />
+                        <IconButton
+                            color="secondary"
+                            onClick={handleClickOpenDialog}
+                        >
+                            <DeleteIcon />
+                        </IconButton>
+                        <Switch
+                            checked={props.row.disabled}
+                            onChange={props.onSwitchActiveState}
+                        />
                     </TableCell>
                 )
             }
@@ -70,8 +78,10 @@ const TableRowActionsCell = props => {
 TableRowActionsCell.propTypes = {
     row: PropTypes.exact(PT.TABLE_ROW).isRequired,
     isEditMode: PropTypes.bool.isRequired,
-    onClickEdit: PropTypes.func.isRequired,
-    onClickCancel: PropTypes.func.isRequired,
+    onSwitchActiveState: PropTypes.func.isRequired,
+    onClickSave: PropTypes.func.isRequired,
+    onClickStartEdit: PropTypes.func.isRequired,
+    onClickCancelEdit: PropTypes.func.isRequired,
     onClickRemove: PropTypes.func.isRequired
 };
 

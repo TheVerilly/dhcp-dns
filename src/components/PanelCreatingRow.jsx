@@ -1,8 +1,11 @@
-import React, { useState } from 'react';
+import React from 'react';
 import PropTypes from 'prop-types';
 
 import { Box, TextField, Button } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
+
+import useBindFields from '../hook/useBindFields';
+import { ROW_FIELDS } from '../settings';
 
 const Field = withStyles({
     root: {
@@ -30,10 +33,10 @@ const Field = withStyles({
 })(TextField);
 
 const PanelCreatingRow = props => {
-    const [values, setValue] = useState({ domain: '', ipAddress: '' });
+    const { values, updateValues } = useBindFields(ROW_FIELDS);
 
     const handleChangeCreateField = event => {
-        setValue({...values, [event.target.name]: event.target.value});
+        updateValues({...values, [event.target.name]: event.target.value});
     }
 
     const handleSave = () => {

@@ -10,8 +10,9 @@ import {
 import { withStyles } from '@material-ui/styles';
 
 import TableRowActionsCell from './Table.Row.ActionsCell';
-import TableRowMode from './Table.Row.Mode';
+import TableRowView from './Table.Row.View';
 
+import useBindFields from '../hook/useBindFields';
 import PT from '../prop-types';
 
 const styles = () => ({
@@ -27,9 +28,25 @@ const styles = () => ({
 });
 
 const TableRow = ({ classes, ...props }) => {
-    const isEditMode = props.editableItem?.id === props.row.id;
+    const {
+        values: editableRow,
+        updateValues: setEditableRow,
+        handlerBindFields
+    } = useBindFields();
 
-    const handleEditItem = () => props.onClickEdit(props.row);
+    const isEditMode = editableRow?.id === props.row.id;
+
+    const handleStartEdit = () => {
+        setEditableRow(props.row);
+    }
+
+    const handleCancelEdit = () => {
+        setEditableRow(null);
+    }
+
+    const handleSave = () => {
+        console.log('handleSave', editableRow);
+    };
 
     return (
         <MaterialTableRow hover className={clsx(classes.row, {
@@ -39,35 +56,31 @@ const TableRow = ({ classes, ...props }) => {
             <TableCell padding="checkbox">
                 <Checkbox color="primary"  />
             </TableCell>
-            <TableRowMode isEditMode={isEditMode} row={props.row} />
+            <TableRowView
+                row={props.row}
+                onChangeField={handlerBindFields}
+                isEditMode={isEditMode}
+                editableRow={editableRow}
+            />
             <TableRowActionsCell
                 row={props.row}
                 isEditMode={isEditMode}
-                onClickEdit={handleEditItem}
-                onClickCancel={props.onClickCancel}
+                onClickSave={handleSave}
+                onClickStartEdit={handleStartEdit}
+                onClickCancelEdit={handleCancelEdit}
+                onSwitchActiveState={props.onSwitchActiveState}
                 onClickRemove={props.onClickRemove}
             />
         </MaterialTableRow>
     );
 };
 
-const PT_DATA = {
-    editableItem: PropTypes.exact(PT.TABLE_ROW),
-    row: PropTypes.exact(PT.TABLE_ROW).isRequired,
-};
-
-const PT_HANDLERS = {
-    onClickEdit: PropTypes.func.isRequired,
-    onClickSave: PropTypes.func.isRequired,
-    onSwitchActiveState: PropTypes.func.isRequired,
-    onClickRemove: PropTypes.func.isRequired,
-    onClickCancel: PropTypes.func.isRequired,
-};
-
 TableRow.propTypes = {
     classes: PropTypes.object,
-    ...PT_DATA,
-    ...PT_HANDLERS,
+    row: PropTypes.exact(PT.TABLE_ROW).isRequired,
+    onClickSave: PropTypes.func.isRequired,
+    onClickRemove: PropTypes.func.isRequired,
+    onSwitchActiveState: PropTypes.func.isRequired,
 };
 
 export default withStyles(styles)(TableRow);

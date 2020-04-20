@@ -17,8 +17,6 @@ import TableToolbar from './Table.Toolbar';
 import PT from '../prop-types';
 
 const Table = props => {
-    // const [selected, setSelected] = useState([]);
-    const [editableItem, setEditableItem] = useState(null);
     const [isCreatableMode, setCreatableMode] = useState(false);
 
     const handleSelectAllClick = () => {
@@ -30,15 +28,11 @@ const Table = props => {
     };
 
     const handleSave = data => {
-        props.actionUpdateData(data)
+        console.log(data)
     };
 
     const handleRemove = row => {
         console.log('handleOnRemove', row);
-    };
-
-    const handleToggleEditMode = value => {
-        setEditableItem(value);
     };
 
     const handleSwitchActiveState = () => {
@@ -84,12 +78,9 @@ const Table = props => {
                                             <TableRow
                                                 key={row.id}
                                                 row={row}
-                                                editableItem={editableItem}
-                                                onClickEdit={handleToggleEditMode}
                                                 onClickSave={handleSave}
-                                                onSwitchActiveState={handleSwitchActiveState}
                                                 onClickRemove={handleRemove}
-                                                onClickCancel={() => handleToggleEditMode(null)}
+                                                onSwitchActiveState={handleSwitchActiveState}
                                             />
                                         ))
                                     )
@@ -106,7 +97,6 @@ const Table = props => {
 Table.propTypes = {
     isLoading: PropTypes.bool,
     data: PropTypes.arrayOf(PropTypes.exact(PT.TABLE_ROW)),
-    actionUpdateData: PropTypes.func.isRequired,
 };
 
 export default Table;
