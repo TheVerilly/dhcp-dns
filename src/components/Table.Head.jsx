@@ -17,7 +17,11 @@ const TableHead = props => (
     <MaterialTableHead>
         <TableRow>
             <TableCell padding="checkbox">
-                <Checkbox color="primary" disabled={props.isLoading} onChange={props.onSelectAllClick}/>
+                <Checkbox
+                    color="primary"
+                    disabled={props.isLoading || props.disabledCheckbox}
+                    onChange={props.onSelectAllClick}
+                />
             </TableCell>
             {headCells.map(item => (
                 <TableCell key={item.id}>{item.label}</TableCell>
@@ -28,6 +32,7 @@ const TableHead = props => (
 );
 
 TableHead.propTypes = {
+    disabledCheckbox: PropTypes.bool.isRequired,
     isLoading: PropTypes.bool.isRequired,
     onSelectAllClick: PropTypes.func.isRequired,
 };

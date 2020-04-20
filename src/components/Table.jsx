@@ -33,8 +33,8 @@ const Table = props => {
         props.actionUpdateData(data)
     };
 
-    const handleRemove = () => {
-        console.log('handleOnRemove');
+    const handleRemove = row => {
+        console.log('handleOnRemove', row);
     };
 
     const handleToggleEditMode = value => {
@@ -45,6 +45,7 @@ const Table = props => {
         console.log('switchActiveState');
     };
 
+    const emptyData = props.data.length === 0;
 
     return (
         <Paper>
@@ -56,6 +57,7 @@ const Table = props => {
             />
             <MaterialTable>
                 <TableHead
+                    disabledCheckbox={emptyData}
                     isLoading={props.isLoading}
                     rowCount={props.data.length}
                     onSelectAllClick={handleSelectAllClick}
@@ -64,16 +66,18 @@ const Table = props => {
                     {
                         props.isLoading ? (
                             <MaterialTableRow>
-                                <TableCell colSpan={6}>
+                                <TableCell colSpan={4}>
                                     <Typography align="center">Fetching...</Typography>
                                 </TableCell>
                             </MaterialTableRow>
                         ) : (
                             <Fragment>
                                 {
-                                    (props.data.length === 0) ? (
+                                    emptyData ? (
                                         <MaterialTableRow>
-                                            <TableCell colSpan={6} />
+                                            <TableCell colSpan={4}>
+                                                <Typography align="center">Empty data</Typography>
+                                            </TableCell>
                                         </MaterialTableRow>
                                     ) : (
                                         props.data.map(row => (

@@ -1,4 +1,4 @@
-import React, { StrictMode, useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react'
 
 import { Box } from '@material-ui/core';
 
@@ -32,11 +32,9 @@ const App = () => {
     }
 
     return (
-        <StrictMode>
-            <Box p={3}>
-                <Table isLoading={isLoading} actionUpdateData={handleUpdateData} data={data} />
-            </Box>
-        </StrictMode>
+        <Box p={3}>
+            <Table isLoading={isLoading} actionUpdateData={handleUpdateData} data={data} />
+        </Box>
     );
 };
 

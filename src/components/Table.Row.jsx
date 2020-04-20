@@ -45,6 +45,7 @@ const TableRow = ({ classes, ...props }) => {
                 isEditMode={isEditMode}
                 onClickEdit={handleEditItem}
                 onClickCancel={props.onClickCancel}
+                onClickRemove={props.onClickRemove}
             />
         </MaterialTableRow>
     );
