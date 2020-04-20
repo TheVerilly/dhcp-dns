@@ -41,6 +41,7 @@ const PanelCreatingRow = props => {
 
     const handleSave = () => {
         props.onClickSave(values);
+        updateValues(ROW_FIELDS);
     }
     return (
         <Box width={545} display="flex" justifyContent="space-between">
@@ -51,6 +52,7 @@ const PanelCreatingRow = props => {
                 variant="outlined"
                 size="small"
                 name="domain"
+                value={values.domain}
                 onChange={handleChangeCreateField}
 
             />
@@ -60,6 +62,7 @@ const PanelCreatingRow = props => {
                 label="IP Address"
                 size="small"
                 name="ipAddress"
+                value={values.ipAddress}
                 onChange={handleChangeCreateField}
             />
             <Button onClick={handleSave} variant="contained" color="primary">Save</Button>
