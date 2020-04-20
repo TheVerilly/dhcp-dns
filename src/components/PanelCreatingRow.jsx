@@ -36,13 +36,13 @@ const PanelCreatingRow = props => {
     const { values, updateValues } = useBindFields(ROW_FIELDS);
 
     const handleChangeCreateField = event => {
-        updateValues({...values, [event.target.name]: event.target.value});
-    }
+        updateValues({ ...values, [event.target.name]: event.target.value });
+    };
 
     const handleSave = () => {
         props.onClickSave(values);
         updateValues(ROW_FIELDS);
-    }
+    };
     return (
         <Box width={545} display="flex" justifyContent="space-between">
             <Field
@@ -72,6 +72,6 @@ const PanelCreatingRow = props => {
 
 PanelCreatingRow.propTypes = {
     onClickSave: PropTypes.func.isRequired
-}
+};
 
 export default PanelCreatingRow;

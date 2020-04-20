@@ -1,0 +1,12 @@
+{
+    "parser": "babel-eslint",
+    "plugins": [
+        "react"
+    ],
+    "rules": {
+        "semi": ["error", "always"],
+        "object-curly-spacing": [ 2, "always" ],
+        "no-multiple-empty-lines": [ 2, { "max": 1, "maxEOF": 0, "maxBOF": 0 } ],
+        "quotes": [ 1, "single", "avoid-escape" ]
+    }
+}

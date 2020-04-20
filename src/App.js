@@ -1,8 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState } from 'react';
 
 import { Box } from '@material-ui/core';
 
-import Table from './components/Table'
+import Table from './components/Table';
 
 const initialData = [
     { id: 1, ipAddress: '255.255.248.0', domain: 'example.com', disabled: false },
@@ -13,7 +13,7 @@ const initialData = [
 
 const emulationRequest = () => new Promise(resolve => setTimeout(() => {
     resolve(initialData);
-}, 2000))
+}, 2000));
 
 const App = () => {
     const [data, setData] = useState([]);
@@ -24,7 +24,7 @@ const App = () => {
         emulationRequest(setLoading).then(resData => {
             setLoading(false);
             setData(resData);
-        })
+        });
     }, []);
 
     return (

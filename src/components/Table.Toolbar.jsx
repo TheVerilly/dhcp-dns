@@ -56,7 +56,7 @@ const TableToolbar = ({ classes, ...props }) => {
                 </Fab>
         </Toolbar>
     );
-}
+};
 
 TableToolbar.propTypes = {
     isLoading: PropTypes.bool.isRequired,

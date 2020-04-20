@@ -38,11 +38,11 @@ const TableRow = ({ classes, ...props }) => {
 
     const handleStartEdit = () => {
         setEditableRow(props.row);
-    }
+    };
 
     const handleCancelEdit = () => {
         setEditableRow(null);
-    }
+    };
 
     const handleSave = () => {
         console.log('handleSave', editableRow);

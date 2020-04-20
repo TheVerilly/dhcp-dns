@@ -5,10 +5,10 @@ const useBindFields = (initialFields = null) => {
 
     const handlerBindFields = ({ target, }) => {
         const data = target ? { ...values, [target.name]: target.value } : null;
-        updateValues(data)
-    }
+        updateValues(data);
+    };
 
     return { values, updateValues, handlerBindFields };
-}
+};
 
 export default useBindFields;

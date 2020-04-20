@@ -21,14 +21,14 @@ const Table = props => {
 
     const handleSelectAllClick = () => {
         console.log('handleSelectAllClick');
-    }
+    };
 
     const handleToggleCreateMode = value => {
         setCreatableMode(value);
     };
 
     const handleSave = data => {
-        console.log(data)
+        console.log(data);
     };
 
     const handleRemove = row => {
@@ -92,7 +92,7 @@ const Table = props => {
             </MaterialTable>
         </Paper>
     );
-}
+};
 
 Table.propTypes = {
     isLoading: PropTypes.bool,
@@ -100,5 +100,3 @@ Table.propTypes = {
 };
 
 export default Table;
-
-

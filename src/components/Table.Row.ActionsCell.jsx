@@ -1,8 +1,8 @@
 import React, { Fragment, useState } from 'react';
 import PropTypes from 'prop-types';
 
-import {Button, IconButton, Switch, TableCell} from '@material-ui/core';
-import {Delete as DeleteIcon, Edit as EditIcon} from '@material-ui/icons';
+import { Button, IconButton, Switch, TableCell } from '@material-ui/core';
+import { Delete as DeleteIcon, Edit as EditIcon } from '@material-ui/icons';
 import { withStyles } from '@material-ui/styles';
 
 import DialogConfirm from './DialogConfirm';

@@ -9,4 +9,4 @@ const TABLE_ROW = {
 
 export default {
     TABLE_ROW
-}
+};
