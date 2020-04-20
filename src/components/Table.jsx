@@ -60,7 +60,7 @@ const Table = props => {
                     {
                         props.isLoading ? (
                             <MaterialTableRow>
-                                <TableCell colSpan={4}>
+                                <TableCell colSpan={5}>
                                     <Typography align="center">Fetching...</Typography>
                                 </TableCell>
                             </MaterialTableRow>
@@ -69,7 +69,7 @@ const Table = props => {
                                 {
                                     emptyData ? (
                                         <MaterialTableRow>
-                                            <TableCell colSpan={4}>
+                                            <TableCell colSpan={5}>
                                                 <Typography align="center">Empty data</Typography>
                                             </TableCell>
                                         </MaterialTableRow>

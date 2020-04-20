@@ -2,7 +2,8 @@ import PropTypes from 'prop-types';
 
 const TABLE_ROW = {
     id: PropTypes.number,
-    ipAddress: PropTypes.string,
+    ip: PropTypes.string,
+    mac: PropTypes.string,
     domain: PropTypes.string,
     disabled: PropTypes.bool
 };

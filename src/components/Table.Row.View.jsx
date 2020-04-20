@@ -20,9 +20,17 @@ const TableRowView = props => (
                     </TableCell>
                     <TableCell>
                         <TextField
-                            name="ipAddress"
+                            name="ip"
                             variant="outlined"
-                            value={props.editableRow['ipAddress']}
+                            value={props.editableRow['ip']}
+                            onChange={props.onChangeField}
+                        />
+                    </TableCell>
+                    <TableCell>
+                        <TextField
+                            name="ip"
+                            variant="outlined"
+                            value={props.editableRow['mac']}
                             onChange={props.onChangeField}
                         />
                     </TableCell>
@@ -30,7 +38,8 @@ const TableRowView = props => (
             ) : (
                 <Fragment>
                     <TableCell>{props.row.domain}</TableCell>
-                    <TableCell>{props.row.ipAddress}</TableCell>
+                    <TableCell>{props.row.ip}</TableCell>
+                    <TableCell>{props.row.mac}</TableCell>
                 </Fragment>
             )
         }

@@ -5,10 +5,10 @@ import { Box } from '@material-ui/core';
 import Table from './components/Table';
 
 const initialData = [
-    { id: 1, ipAddress: '255.255.248.0', domain: 'example.com', disabled: false },
-    { id: 2, ipAddress: '255.255.255.128', domain: 'example.net', disabled: false },
-    { id: 3, ipAddress: '255.255.255.224', domain: 'example.some.org' , disabled: true },
-    { id: 4, ipAddress: '255.255.255.248', domain: 'example.edu', disabled: false },
+    { id: 1, ip: '255.255.248.0', domain: 'example.com', mac: '00:11:22:33:AA:BB', disabled: false },
+    { id: 2, ip: '255.255.255.128', domain: 'example.net', mac: '00:11:22:33:AA:BB', disabled: false },
+    { id: 3, ip: '255.255.255.224', domain: 'example.some.org', mac: '00:11:22:33:AA:BB', disabled: true },
+    { id: 4, ip: '255.255.255.248', domain: 'example.edu', mac: '00:11:22:33:AA:BB', disabled: false },
 ];
 
 const emulationRequest = () => new Promise(resolve => setTimeout(() => {

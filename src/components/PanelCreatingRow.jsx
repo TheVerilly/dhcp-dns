@@ -43,8 +43,13 @@ const PanelCreatingRow = props => {
         props.onClickSave(values);
         updateValues(ROW_FIELDS);
     };
+
+    const handleReset = () => {
+        updateValues(ROW_FIELDS);
+    };
+
     return (
-        <Box width={545} display="flex" justifyContent="space-between">
+        <Box width={900} display="flex" justifyContent="space-between">
             <Field
                 autoFocus
                 required
@@ -59,13 +64,23 @@ const PanelCreatingRow = props => {
             <Field
                 required
                 variant="outlined"
-                label="IP Address"
+                label="IP"
                 size="small"
-                name="ipAddress"
-                value={values.ipAddress}
+                name="ip"
+                value={values.ip}
+                onChange={handleChangeCreateField}
+            />
+            <Field
+                required
+                variant="outlined"
+                label="MAC"
+                size="small"
+                name="mac"
+                value={values.mac}
                 onChange={handleChangeCreateField}
             />
             <Button onClick={handleSave} variant="contained" color="primary">Save</Button>
+            <Button onClick={handleReset} variant="contained" color="secondary">Reset</Button>
         </Box>
     );
 };

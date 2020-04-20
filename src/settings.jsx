@@ -1,4 +1,5 @@
 export const ROW_FIELDS = {
     domain: '',
-    ipAddress: '',
+    ip: '',
+    mac: '',
 };

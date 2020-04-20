@@ -10,7 +10,8 @@ import {
 
 const headCells = [
     { id: 'DOMAIN', label: 'Domain' },
-    { id: 'IP_ADDRESS', label: 'ipAddress' },
+    { id: 'IP', label: 'IP' },
+    { id: 'MAC', label: 'MAC' },
 ];
 
 const TableHead = props => (
