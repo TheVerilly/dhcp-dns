@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 
-import { Toolbar, LinearProgress, Typography, Fab } from '@material-ui/core';
+import { Toolbar, LinearProgress, Fab } from '@material-ui/core';
 import { withStyles } from '@material-ui/styles';
-import { Add as AddIcon, Close as CloseIcon } from '@material-ui/icons';
+import { Add as AddIcon, Close as CloseIcon, DeleteForever as DeleteForeverIcon } from '@material-ui/icons';
 
 import PanelCreatingRow from './PanelCreatingRow';
 
@@ -15,8 +15,12 @@ const styles = () => ({
         justifyContent: 'space-between',
         background: '#35445a',
     },
-    title: {
-        color: 'white',
+    buttonCreate: {
+        color: '#333333',
+        background: '#93ecdc',
+        '&:hover': {
+            background: '#00f8cb',
+        }
     },
     linearProgress: {
         position: 'absolute',
@@ -35,15 +39,21 @@ const TableToolbar = ({ classes, ...props }) => {
     return (
         <Toolbar className={classes.toolbar}>
             {props.isLoading && <LinearProgress className={classes.linearProgress} />}
-            <Typography className={classes.title} variant="subtitle1">DHCP-DNS</Typography>
+            <Fab disabled={true} size="small" color="secondary">
+                <DeleteForeverIcon />
+            </Fab>
 
             {props.creatableMode && (
                 <PanelCreatingRow onClickSave={props.onClickSave} />
             )}
 
-            <Fab color="primary" onClick={handleToggleCreateMode}>
-                {props.creatableMode ? (<CloseIcon />) : (<AddIcon />)}
-            </Fab>
+                <Fab
+                    className={classes.buttonCreate}
+                    size="medium"
+                    onClick={handleToggleCreateMode}
+                >
+                    {props.creatableMode ? (<CloseIcon />) : (<AddIcon />)}
+                </Fab>
         </Toolbar>
     );
 }
