@@ -35,8 +35,8 @@ const Table = props => {
         console.log('handleOnRemove', row);
     };
 
-    const handleSwitchActiveState = () => {
-        console.log('switchActiveState');
+    const handleSwitchActiveState = id => {
+        console.log('switchActiveState', id);
     };
 
     const emptyData = props.data.length === 0;

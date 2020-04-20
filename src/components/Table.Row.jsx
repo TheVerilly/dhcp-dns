@@ -46,6 +46,7 @@ const TableRow = ({ classes, ...props }) => {
 
     const handleSave = () => {
         console.log('handleSave', editableRow);
+        handleCancelEdit();
     };
 
     return (

@@ -61,7 +61,7 @@ const TableRowActionsCell = props => {
                         </IconButton>
                         <Switch
                             checked={props.row.disabled}
-                            onChange={props.onSwitchActiveState}
+                            onChange={() => props.onSwitchActiveState(props.row.id)}
                         />
                     </TableCell>
                 )
