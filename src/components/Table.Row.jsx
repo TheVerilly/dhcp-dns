@@ -20,7 +20,7 @@ const styles = () => ({
         boxShadow: 'inset 5px 0px 0px 0px'
     },
     disabled: {
-        color: '#fa89ac'
+        color: '#ba5e5e'
     },
     enabled: {
         color: '#5eba7d'
